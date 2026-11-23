@@ -1,5 +1,13 @@
 __pycache__/
 *.py[cod]
-/reports.sqlite
-/reports.sqlite-*
-.DS_Store
+*.sqlite
+*.sqlite3
+*.db
+results/
+protocol.json
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+.pytest_cache/

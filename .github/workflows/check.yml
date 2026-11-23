@@ -1,4 +1,4 @@
-name: Check the sample application
+name: Check the benchmark and sample application
 on:
   pull_request:
     branches: [main]
@@ -12,12 +12,14 @@ permissions:
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           persist-credentials: false
-      - name: Package the commit and smoke-test its Lambda handler
+      - name: Run benchmark harness tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Package and smoke-test the Lambda handler
         run: |
           python3 aws/deploy.py package --output "$RUNNER_TEMP/report-stack.json"
           python3 aws/deploy.py smoke --template "$RUNNER_TEMP/report-stack.json"

@@ -1,0 +1,36 @@
+{
+  "name": "Proofline AI reviewer benchmark",
+  "baseline_commit": "9b5ac64ab0d3ba414c5edec1e64fcdf8b3b19a1a",
+  "case_ids": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08"
+  ],
+  "contexts": [
+    "code-only",
+    "deployment-snapshot"
+  ],
+  "review_window_hours": 24,
+  "provider_settings": {
+    "trigger": "GitHub pull request review",
+    "keep_provider_repositories_separate": true,
+    "keep_answer_keys_out_of_provider_repositories": true,
+    "record_model_and_settings_when_visible": true,
+    "record_plan_and_quota_limits": true
+  },
+  "scoring": {
+    "correct": 1,
+    "duplicate": 0,
+    "unsupported": 0,
+    "needs-context": 0.5,
+    "not-a-finding": 0,
+    "grade_each_distinct_claim": true,
+    "preserve_raw_review_comments": true,
+    "blind_provider_identity_when_practical": true
+  }
+}
